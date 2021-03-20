@@ -4,16 +4,16 @@ using System.Text.Json;
 using System.Threading.Tasks;
 
 
-    class Person
-    {
-        public string Name { get; set; }
-        public int Age { get; set; }
-
-    }
-
-class Program
+class Person
 {
-    static async Task Main(string[] args)
+    public string Name { get; set; }
+    public int Age { get; set; }
+
+}
+
+public class Task3
+{
+    public static async Task Main()
     {
         using (FileStream fs = new FileStream("user.json", FileMode.OpenOrCreate))
         {
@@ -27,7 +27,6 @@ class Program
             Person restoredPerson = await JsonSerializer.DeserializeAsync<Person>(fs);
             Console.WriteLine($"Name: {restoredPerson.Name}  Age: {restoredPerson.Age}");
         }
-
     }
-}
 
+}

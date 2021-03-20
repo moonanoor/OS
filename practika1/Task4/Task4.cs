@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Linq;
 using System.IO;
-class Program
+public class Task4
 {
-    static void Main(string[] args)
+   public static void Main()
     {
         XmlDocument xDoc = new XmlDocument();
         XDocument xdoc = new XDocument();

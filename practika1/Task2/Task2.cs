@@ -3,9 +3,9 @@ using System.IO;
 using System.Text;
 
 
-class Program
+public class Task2
 {
-    static void Main(string[] args)
+    public static void Main()
     {
         string path = @"C:\Users\User\source\repos\OS\practika1\Task2\text.txt";
 
