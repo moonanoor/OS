@@ -24,7 +24,7 @@ namespace Menu
                 case 4: Task4.Main(); goto Menu;
                 case 5: Task5.Main(); goto Menu;
                 case 0: break;
-                default: throw new ArgumentException("Недопустимый код операции");
+                default: goto Menu;
             }
         }
     }
