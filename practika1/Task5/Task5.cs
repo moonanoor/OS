@@ -2,9 +2,9 @@
 using System.IO;
 using System.IO.Compression;
 
-class Program
+public class Task5
 {
-    static void Main(string[] args)
+   public static void Main()
     {
         string[] namelist = { ".//archive", ".//text_dezip", "text.zip" };
         FileInfo check = new FileInfo(namelist[2]);
