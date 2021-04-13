@@ -6,6 +6,7 @@ namespace Lab3
 {
     class Program
     {
+        static bool check = true;
         private static Mutex mut = new Mutex();
         private static Thread newThread_prod;
         private static Thread newThread_cus;
@@ -16,7 +17,7 @@ namespace Lab3
         protected static int origCol = Console.CursorLeft;
         static void Main(string[] args)
         {
-            
+            char stop;
             for (int i = 0; i < 3; i++)
             {
                 newThread_prod = new Thread(new ThreadStart(Producer));
@@ -31,17 +32,21 @@ namespace Lab3
                 newThread_cus.Name = String.Format("Thread{0}", i + 4);
                 newThread_cus.Start();
             }
-            
-           
-            
-           
+            while (check)
+            {
+                stop = Console.ReadKey().KeyChar;
+                if (stop == 'q') check = false;
+            }
+
+
+
         }
         public static int i = 0;
         private static void Producer()
         {
-            while (true)
+            while (check)
             {
-                while (Is_ok)
+                while ((Is_ok)&&(check))
                 {
                     Thread.Sleep(500);
                     if (shelf.Count > 100)
@@ -88,8 +93,9 @@ namespace Lab3
                     {
 
                     }
-                    Console.WriteLine("{0}:Removed " + 1, Thread.CurrentThread.Name);
+                    Console.WriteLine("{0}:Removed " + 1 + " from:{1}", Thread.CurrentThread.Name, shelf.Count + 1);
                 }
+                if ((!check) && (shelf.Count == 0)) break;
             }
         }
     }
